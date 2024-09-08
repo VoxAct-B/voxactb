@@ -1,0 +1,61 @@
+import numpy as np
+from perception_utils import detect
+
+objects = ['green block', 'cardboard box']
+# Query: gripper
+gripper = detect('gripper')
+ret_val = gripper
+
+objects = ['top drawer', 'bottom drawer handle']
+# Query: bottom drawer handle
+bottom_drawer_handle = detect('bottom drawer handle')
+ret_val = bottom_drawer_handle
+
+objects = ['jar', 'lid']
+# Query: lid
+lid = detect('lid')
+ret_val = lid
+
+objects = ['blue block', 'red block']
+# Query: green block
+ret_val = None
+
+objects = ['jar', 'lid']
+# Query: left hand
+left_hand = detect('left hand')
+ret_val = left_hand
+
+objects = ['jar', 'lid']
+# Query: jar
+jar = detect('jar')
+ret_val = jar
+
+objects = ['top drawer handle', 'item']
+# Query: left hand
+left_hand = detect('left hand')
+ret_val = left_hand
+
+objects = ['top drawer', 'bottom drawer handle']
+# Query: top drawer
+top_drawer = detect('top drawer')
+ret_val = top_drawer
+
+objects = ['top drawer', 'bottom drawer handle']
+# Query: right hand
+right_hand = detect('right hand')
+ret_val = right_hand
+
+objects = ['top drawer', 'bottom drawer handle']
+# Query: left hand
+left_hand = detect('left hand')
+ret_val = left_hand
+
+objects = ['top drawer handle', 'item']
+# Query: item
+item = detect('item')
+ret_val = item
+
+objects = ['top drawer handle', 'item']
+# Query: top drawer handle
+top_drawer_handle = detect('top drawer handle')
+ret_val = top_drawer_handle

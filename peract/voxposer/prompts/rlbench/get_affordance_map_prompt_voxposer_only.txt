@@ -1,0 +1,82 @@
+import numpy as np
+from perception_utils import parse_query_obj
+from plan_utils import get_empty_affordance_map, set_voxel_by_radius, cm2index
+
+# Query: a point at the center of the blue circle.
+affordance_map = get_empty_affordance_map()
+blue_circle = parse_query_obj('blue circle')
+x, y, z = blue_block.position
+affordance_map[x, y, z] = 1
+ret_val = affordance_map
+
+# Query: a point 3cm below the center of the jar
+affordance_map = get_empty_affordance_map()
+jar = parse_query_obj('jar')
+x, y, z = jar.position
+z = z - cm2index(3, 'z')
+affordance_map[x, y, z] = 1
+ret_val = affordance_map
+
+# Query: a point 10 cm behind of and 5 cm above the jar
+affordance_map = get_empty_affordance_map()
+jar = parse_query_obj('jar')
+(min_x, min_y, min_z), (max_x, max_y, max_z) = jar.aabb
+center_x, center_y, center_z = jar.position
+x = center_x
+# 10 cm behind so we subtract from min_y
+y = min_y - cm2index(10, 'y')
+# 5 above so we add to center_z
+z = center_z + cm2index(5, 'z')
+affordance_map[x, y, z] = 1
+ret_val = affordance_map
+
+# Query: a point 15 cm next to and 12 cm above the jar
+affordance_map = get_empty_affordance_map()
+jar = parse_query_obj('jar')
+(min_x, min_y, min_z), (max_x, max_y, max_z) = jar.aabb
+center_x, center_y, center_z = jar.position
+# 15 cm next to so we add to max_x
+x = max_x + cm2index(15, 'x')
+y = center_y
+# 12 above so we add to center_z
+z = center_z + cm2index(12, 'z')
+affordance_map[x, y, z] = 1
+ret_val = affordance_map
+
+# Query: a point 20cm away from the bottom drawer handle
+affordance_map = get_empty_affordance_map()
+bottom_drawer_handle = parse_query_obj('bottom drawer handle')
+# positive normal because we are moving away from the handle.
+moving_dir = bottom_drawer_handle.normal
+# add to the moving_dir
+affordance_xyz = bottom_drawer_handle.position + cm2index(20, moving_dir)
+affordance_map[affordance_xyz[0], affordance_xyz[1], affordance_xyz[2]] = 1
+ret_val = affordance_map
+
+# Query: a point in the center offset by 5 cm in y-axis and 1cm below the top drawer
+affordance_map = get_empty_affordance_map()
+top_drawer = parse_query_obj('top drawer')
+(min_x, min_y, min_z), (max_x, max_y, max_z) = top_drawer.aabb
+center_x, center_y, center_z = top_drawer.position
+x = center_x
+# in the center offset by 5 cm so we subtract from center_y
+y = center_y - cm2index(5, 'y')
+# 1cm below so we subtract from max_z
+z = max_z - cm2index(1, 'z')
+affordance_map[x, y, z] = 1
+ret_val = affordance_map
+
+# Query: a point 5 cm into and 10 cm above the top drawer handle
+affordance_map = get_empty_affordance_map()
+top_drawer_handle = parse_query_obj('top drawer handle')
+center_x, center_y, center_z = top_drawer_handle.position
+x = center_x
+y = center_y
+# 10 above so we add to center_z
+z = center_z + cm2index(10, 'z')
+# negative normal because we are moving into the handle.
+moving_dir = -top_drawer_handle.normal
+# add to the moving_dir
+affordance_xyz = [x, y, z] + cm2index(5, moving_dir)
+affordance_map[affordance_xyz[0], affordance_xyz[1], affordance_xyz[2]] = 1
+ret_val = affordance_map

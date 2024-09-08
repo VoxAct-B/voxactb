@@ -1,0 +1,11 @@
+__pycache__
+data/
+*.tar.xz
+CoppeliaSim_Edu*/
+ckpts/
+logs/
+outputs/
+eval_csv_files/
+env_images/
+tmp.ttm
+urx.egg-info/

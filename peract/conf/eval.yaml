@@ -1,0 +1,49 @@
+method:
+    name: "PERACT_BC"
+    which_arm: null
+    variant: 'two_policies' # two_policies, one_policy_more_heads
+    crop_target_obj_voxel: False # whether to crop region of object of interest
+    crop_radius: 0.0 # how big is the crop region
+    voxposer_only_eval: False # evalaute VoxPoser in the environment (PerAct is not used)
+    no_voxposer: False # ablation: no VoxPoser
+    no_acting_stabilizing: False # ablation: no acting stabilizing policy formulation
+    gt_target_object_world_coords: False  # whether to use ground truth target_object_world_coords
+    baseline_name: '' # baseline1
+    diff_appearance: False
+
+rlbench:
+    task_name: "multi"
+    tasks: [open_drawer,slide_block_to_color_target]
+    demo_path: /my/demo/path
+    episode_length: 25
+    cameras: [front,left_shoulder,right_shoulder,wrist]
+    camera_resolution: [128, 128]
+    scene_bounds: [-0.3, -0.5, 0.6, 0.7, 0.5, 1.6]
+    include_lang_goal_in_obs: True
+    time_in_state: True
+    headless: True
+
+framework:
+    tensorboard_logging: True
+    csv_logging: True
+    gpu: 0
+    logdir: '/tmp/arm_test/'
+    left_arm_ckpt: null
+    left_arm_ckpt_skip: null
+    left_arm_train_cfg: null
+    act_arm_ckpt_skip: null
+    start_seed: 0
+    record_every_n: 5
+
+    eval_envs: 1
+    eval_from_eps_number: 0
+    eval_episodes: 25
+    eval_type: 'missing' # or 'best'
+    eval_save_metrics: True
+
+cinematic_recorder:
+    enabled: False
+    camera_resolution: [1280, 720]
+    fps: 30
+    rotate_speed: 0.005
+    save_path: '/tmp/videos/'
