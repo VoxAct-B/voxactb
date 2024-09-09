@@ -4,6 +4,8 @@
 
 This project is a PyTorch implementation of VoxAct-B: Voxel-Based Acting and Stabilizing Policy for Bimanual Manipulation, published in CoRL 2024.
 
+**Authors**: [I-Chun Arthur Liu](https://arthurliu.com/), [Sicheng He](https://hesicheng.net/), [Daniel Seita](https://danielseita.github.io/)\*, [Gaurav S. Sukhatme](https://uscresl.org/principal-investigator/)\* at [USC SLURM](https://slurm-lab-usc.github.io/) and [USC RESL](https://uscresl.org/) (\* equal advising).
+
 Bimanual manipulation is critical to many robotics applications. In contrast to single-arm manipulation, bimanual manipulation tasks are challenging due to higher-dimensional action spaces. Prior works leverage large amounts of data and primitive actions to address this problem, but may suffer from sample inefficiency and limited generalization across various tasks. To this end, we propose VoxAct-B, a language-conditioned, voxel-based method that leverages Vision Language Models (VLMs) to prioritize key regions within the scene and reconstruct a voxel grid. We provide this voxel grid to our bimanual manipulation policy to learn acting and stabilizing actions. This approach enables more efficient policy learning from voxels and is generalizable to different tasks. In simulation, we show that VoxAct-B outperforms strong baselines on fine-grained bimanual manipulation tasks. Furthermore, we demonstrate VoxAct-B on real-world 𝙾𝚙𝚎𝚗 𝙳𝚛𝚊𝚠𝚎𝚛 and 𝙾𝚙𝚎𝚗 𝙹𝚊𝚛 tasks using two UR5s.
 
 ## Installation
