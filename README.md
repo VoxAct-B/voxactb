@@ -116,7 +116,7 @@ mkdir data
 cd data
 ```
 
-Download this [zip file](https://drive.google.com/file/d/1nSi1DEk1RUDek6N42izIMrE9RZxZLGwE/view?usp=sharing), unzip it, and place `clip_rn50.pth` and `segment_anything_vit_h.pth` inside the `voxactb/peract/data` folder.
+Download this [zip file](https://huggingface.co/datasets/arthur801031/voxact-b/blob/main/pretrained_weights.zip), unzip it, and place `clip_rn50.pth` and `segment_anything_vit_h.pth` inside the `voxactb/peract/data` folder.
 
 #### VoxPoser
 
@@ -162,9 +162,11 @@ If you see `_pickle.UnpicklingError: invalid load key, '\x9e'`, maybe one of the
 
 ## How to run experiments
 
-You can download the train/val/test datasets from [here](https://drive.google.com/drive/folders/1FOvFVElbKFhIHV5BOnsKlUDnejk1U2-5?usp=drive_link) (place the train, val, and test folders in the `voxactb/peract/data` folder) or generate the datasets by following [these instructions](#how-to-generate-datasets). 
+Datasets are hosted on [Hugging Face](https://huggingface.co/datasets/arthur801031/voxact-b).
 
-To reproduce our results, you can download the [checkpoints](https://drive.google.com/drive/folders/1GJ1mFXCkRCeiMokoefG7s1BrmFEFoSGI?usp=sharing) and place them in the `voxactb/peract/log` folder.
+* You can download the train/val/test datasets from [here](https://huggingface.co/datasets/arthur801031/voxact-b/tree/main/data) (place the train, val, and test folders in the `voxactb/peract/data` folder) or generate the datasets by following [these instructions](#how-to-generate-datasets). 
+
+* To reproduce our results, you can download the [checkpoints](https://huggingface.co/datasets/arthur801031/voxact-b/tree/main/weights) and place them in the `voxactb/peract/log` folder.
 
 Go to `voxactb/peract/scripts`.
 
